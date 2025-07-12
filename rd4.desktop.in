@@ -1,0 +1,7 @@
+[Desktop Entry]
+_Name=RD4
+Exec=qmlscene %U qml/Main.qml
+Icon=assets/logo.svg
+Terminal=false
+Type=Application
+X-Lomiri-Touch=true

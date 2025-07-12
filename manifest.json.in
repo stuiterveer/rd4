@@ -1,0 +1,15 @@
+{
+    "name": "rd4.stuiterveer",
+    "description": "Unofficial RD4 waste calendar for Ubuntu Touch",
+    "architecture": "@CLICK_ARCH@",
+    "title": "RD4",
+    "hooks": {
+        "rd4": {
+            "apparmor": "rd4.apparmor",
+            "desktop":  "rd4.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "stuiterveer <admin@stuiterveer.com>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}
