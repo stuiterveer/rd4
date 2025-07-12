@@ -46,7 +46,7 @@ MainView {
                 Column {
                     Text {
                         text: '<b>' + date + ':</b> ' + type
-                        color: isDark ? '#ffffff' : '#000000'
+                        color: isDark ? '#ffffff' : '#111111'
                     }
                 }
             }
