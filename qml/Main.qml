@@ -122,11 +122,9 @@ MainView {
 
             onClicked: {
                 python.call('rd4.saveAddress', [postalcode.text, housenumber.text, numberextension.text], function(returnValue) {
-                    //wasteModel = returnValue;
                     wasteModel.clear()
                     for (var i = 0; i < returnValue.length; i++)
                     {
-                        //console.log(returnValue[i]['date']);
                         wasteModel.append(returnValue[i])
                     }
                 })
