@@ -34,7 +34,7 @@ def initConfig():
     defaultConfig = {
         'postalCode': None,
         'houseNumber': None,
-        'extension': None,
+        'extension': None
     }
 
     if not os.path.exists(confDir):
