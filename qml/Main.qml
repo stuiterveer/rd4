@@ -42,9 +42,12 @@ MainView {
             id: wasteDelegate
             Item {
                 readonly property bool isDark: theme.name === 'Lomiri.Components.Themes.SuruDark'
-                width: 180; height: units.gu(2)
-                Column {
+                height: txt.implicitHeight
+                width: txt.implicitWidth
+
+                Row {
                     Text {
+                        id: txt
                         text: '<b>' + date + ':</b> ' + type
                         color: isDark ? '#ffffff' : '#111111'
                     }
@@ -65,7 +68,6 @@ MainView {
                 id: wasteModel
             }
             delegate: wasteDelegate
-
         }
 
         TextField {
