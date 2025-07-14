@@ -16,19 +16,16 @@
 
 from urllib import request
 import json
+import os
+import confighandler
 
-
-addressDetails = {
-    'postalCode': None,
-    'houseNumber': None,
-    'extension': None,
-}
+config = confighandler.readConfig()
 
 def getCalendar():
-    params = '?postal_code=' + addressDetails['postalCode']
-    params += '&house_number=' + addressDetails['houseNumber']
-    if addressDetails['extension'] is not None:
-        params += '&house_number_extension=' + addressDetails['extension']
+    params = '?postal_code=' + config['postalCode']
+    params += '&house_number=' + config['houseNumber']
+    if config['extension'] is not None:
+        params += '&house_number_extension=' + config['extension']
     params += '&year=2025'
     params += '&types[]=residual_waste'
     params += '&types[]=gft'
@@ -58,12 +55,13 @@ def getCalendar():
     return data
 
 def saveAddress(postalCode, houseNumber, extension):
-    addressDetails['postalCode'] = postalCode
-    addressDetails['houseNumber'] = houseNumber
+    config['postalCode'] = postalCode
+    config['houseNumber'] = houseNumber
     if extension == '':
-        addressDetails['extension'] = None
+        config['extension'] = None
     else:
-        addressDetails['extension'] = extension
+        config['extension'] = extension
+    confighandler.writeConfig(config)
+
     calendar = getCalendar()
     return calendar
-

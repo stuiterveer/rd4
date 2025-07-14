@@ -139,8 +139,20 @@ MainView {
             addImportPath(Qt.resolvedUrl('../src/'));
 
             importModule('rd4', function() {
-                console.log('module imported');
+                console.log('module rd4 imported');
             });
+
+            importModule('confighandler', function() {
+                console.log('module confighandler imported');
+            });
+
+            python.call('confighandler.initConfig')
+
+            python.call('confighandler.readConfig', [], function(returnValue) {
+                postalcode.text = returnValue['postalCode']
+                housenumber.text = returnValue['houseNumber']
+                numberextension.text = returnValue['extension']
+            })
         }
 
         onError: {
