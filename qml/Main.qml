@@ -35,7 +35,7 @@ MainView {
 
         header: PageHeader {
             id: header
-            title: i18n.tr('RD4 Afvalkalender')
+            title: i18n.tr('Rd4 Afvalkalender')
         }
 
         Component {

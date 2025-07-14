@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rd4.stuiterveer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-12 23:17+0000\n"
+"POT-Creation-Date: 2025-07-14 08:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../qml/Main.qml:38
-msgid "RD4 Afvalkalender"
+msgid "Rd4 Afvalkalender"
 msgstr ""
 
 #: ../qml/Main.qml:118
@@ -26,5 +26,5 @@ msgid "Toon kalender"
 msgstr ""
 
 #: rd4.desktop.in.h:1
-msgid "RD4"
+msgid "Rd4"
 msgstr ""

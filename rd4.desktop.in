@@ -1,5 +1,5 @@
 [Desktop Entry]
-_Name=RD4
+_Name=Rd4
 Exec=qmlscene %U qml/Main.qml
 Icon=assets/logo.svg
 Terminal=false

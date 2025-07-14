@@ -1,6 +1,6 @@
-# RD4
+# Rd4
 
-Unofficial RD4 waste calendar for Ubuntu Touch
+Unofficial Rd4 waste calendar for Ubuntu Touch
 
 ## License
 
