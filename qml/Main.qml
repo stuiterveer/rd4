@@ -39,7 +39,7 @@ MainView {
         }
 
         Component {
-            id: contactDelegate
+            id: wasteDelegate
             Item {
                 readonly property bool isDark: theme.name === 'Lomiri.Components.Themes.SuruDark'
                 width: 180; height: units.gu(2)
@@ -64,7 +64,7 @@ MainView {
             model: ListModel {
                 id: wasteModel
             }
-            delegate: contactDelegate
+            delegate: wasteDelegate
 
         }
 
