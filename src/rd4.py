@@ -14,9 +14,9 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-from urllib import request
+import urllib.request
+import urllib.error
 import json
-import os
 import confighandler
 
 config = confighandler.readConfig()
@@ -38,7 +38,10 @@ def getCalendar():
     url = 'https://data.rd4.nl/api/v1/waste-calendar{}'.format(params)
     url = url.replace(" ", "%20")
 
-    conn = request.urlopen(url)
+    try:
+        conn = urllib.request.urlopen(url)
+    except urllib.error.HTTPError as err:
+        return []
     returnData = conn.read()
     conn.close()
 
