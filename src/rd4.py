@@ -47,6 +47,14 @@ def getCalendar():
 
     data = json.loads(returnData)['data']['items'][0]
 
+    i = len(data) - 1
+    while i >= 0:
+        if i != len(data) - 1:
+            if data[i]['date'] == data[i+1]['date']:
+                data[i]['type'] += ', ' + data[i+1]['type']
+                del data[i+1]
+        i -= 1
+
     return data
 
 def saveAddress(postalCode, houseNumber, extension):
