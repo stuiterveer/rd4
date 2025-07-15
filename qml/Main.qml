@@ -48,8 +48,8 @@ MainView {
                 Row {
                     Text {
                         id: txt
-                        text: '<b>' + date + ':</b> ' + type
-                        color: isDark ? '#ffffff' : '#111111'
+                        text: '<b>' + date + (dateInfo == 'today' ? ' (' + i18n.tr('vandaag') + ')' : '') + ':</b> ' + type
+                        color: dateInfo == 'past' ? '#888888' : (isDark ? '#ffffff' : '#111111')
                     }
                 }
             }

@@ -18,6 +18,7 @@ import urllib.request
 import urllib.error
 import json
 import confighandler
+from datetime import date
 
 config = confighandler.readConfig()
 
@@ -48,7 +49,19 @@ def getCalendar():
     data = json.loads(returnData)['data']['items'][0]
 
     i = len(data) - 1
+    today = date.today()
     while i >= 0:
+        dateArr = data[i]['date'].split('-')
+        collectionDate = date(int(dateArr[0]), int(dateArr[1]), int(dateArr[2]))
+
+        if collectionDate < today:
+            data[i]['dateInfo'] = 'past'
+        elif collectionDate == today:
+            data[i]['dateInfo'] = 'today'
+        elif collectionDate > today:
+            data[i]['dateInfo'] = 'future'
+
+
         if i != len(data) - 1:
             if data[i]['date'] == data[i+1]['date']:
                 data[i]['type'] += ', ' + data[i+1]['type']
