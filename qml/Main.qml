@@ -40,6 +40,8 @@ MainView {
         'christmas_trees': i18n.tr('Kerstbomen')
     }
 
+    readonly property bool isDark: theme.name === 'Lomiri.Components.Themes.SuruDark'
+
     Page {
         anchors.fill: parent
 
@@ -51,7 +53,6 @@ MainView {
         Component {
             id: wasteDelegate
             Item {
-                readonly property bool isDark: theme.name === 'Lomiri.Components.Themes.SuruDark'
                 height: txt.implicitHeight
                 width: txt.implicitWidth
 
