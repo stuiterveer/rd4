@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rd4.stuiterveer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-15 11:59+0000\n"
+"POT-Creation-Date: 2025-07-18 10:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,42 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../qml/Main.qml:34
+msgid "Restafval"
+msgstr ""
+
+#: ../qml/Main.qml:35
+msgid "GFT"
+msgstr ""
+
+#: ../qml/Main.qml:36
+msgid "Papier"
+msgstr ""
+
+#: ../qml/Main.qml:37
+msgid "Snoeiafval"
+msgstr ""
+
 #: ../qml/Main.qml:38
+msgid "PMD"
+msgstr ""
+
+#: ../qml/Main.qml:39
+msgid "BEST-tas"
+msgstr ""
+
+#: ../qml/Main.qml:40
+msgid "Kerstbomen"
+msgstr ""
+
+#: ../qml/Main.qml:48
 msgid "Rd4 Afvalkalender"
 msgstr ""
 
-#: ../qml/Main.qml:51
+#: ../qml/Main.qml:61
 msgid "vandaag"
 msgstr ""
 
-#: ../qml/Main.qml:120
+#: ../qml/Main.qml:130
 msgid "Toon kalender"
 msgstr ""

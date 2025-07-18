@@ -61,10 +61,12 @@ def getCalendar():
         elif collectionDate > today:
             data[i]['dateInfo'] = 'future'
 
+        data[i]['types'] = []
+        data[i]['types'].append(data[i]['type'])
 
         if i != len(data) - 1:
             if data[i]['date'] == data[i+1]['date']:
-                data[i]['type'] += ', ' + data[i+1]['type']
+                data[i]['types'].append(data[i+1]['type'])
                 del data[i+1]
         i -= 1
 

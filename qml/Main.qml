@@ -30,6 +30,16 @@ MainView {
     width: units.gu(45)
     height: units.gu(75)
 
+    readonly property var trashLut: {
+        'residual_waste': i18n.tr('Restafval'),
+        'gft': i18n.tr('GFT'),
+        'paper': i18n.tr('Papier'),
+        'pruning_waste': i18n.tr('Snoeiafval'),
+        'pmd': i18n.tr('PMD'),
+        'best_bag': i18n.tr('BEST-tas'),
+        'christmas_trees': i18n.tr('Kerstbomen')
+    }
+
     Page {
         anchors.fill: parent
 
@@ -48,7 +58,7 @@ MainView {
                 Row {
                     Text {
                         id: txt
-                        text: '<b>' + date + (dateInfo == 'today' ? ' (' + i18n.tr('vandaag') + ')' : '') + ':</b> ' + type
+                        text: '<b>' + date + (dateInfo == 'today' ? ' (' + i18n.tr('vandaag') + ')' : '') + ':</b> ' + typesString
                         color: dateInfo == 'past' ? '#888888' : (isDark ? '#ffffff' : '#111111')
                     }
                 }
@@ -127,6 +137,12 @@ MainView {
                     wasteModel.clear()
                     for (var i = 0; i < returnValue.length; i++)
                     {
+                        var typesTrans = []
+                        for (var j = 0; j < returnValue[i]['types'].length; j++)
+                        {
+                            typesTrans.push(trashLut[returnValue[i]['types'][j]])
+                        }
+                        returnValue[i]['typesString'] = typesTrans.join(', ')
                         wasteModel.append(returnValue[i])
                     }
                 })
