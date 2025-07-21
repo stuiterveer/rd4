@@ -46,6 +46,16 @@ Page {
                 pageStack.push(Qt.resolvedUrl('Calendar.qml'))
             }
         }
+
+        ListItem {
+            Label {
+                anchors.centerIn: parent
+                text: i18n.tr('Instellingen')
+            }
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl('Settings.qml'))
+            }
+        }
     }
     
 }
