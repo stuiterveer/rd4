@@ -21,33 +21,31 @@ import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import io.thp.pyotherside 1.4
 
-MainView {
-    id: root
-    objectName: 'mainView'
-    applicationName: 'rd4.stuiterveer'
-    automaticOrientation: true
+Page {
+    anchors.fill: parent
 
-    width: units.gu(45)
-    height: units.gu(75)
-
-    readonly property var trashLut: {
-        'residual_waste': i18n.tr('Restafval'),
-        'gft': i18n.tr('GFT'),
-        'paper': i18n.tr('Papier'),
-        'pruning_waste': i18n.tr('Snoeiafval'),
-        'pmd': i18n.tr('PMD'),
-        'best_bag': i18n.tr('BEST-tas'),
-        'christmas_trees': i18n.tr('Kerstbomen')
+    header: PageHeader {
+        id: header
+        title: 'Rd4'
     }
 
-    readonly property bool isDark: theme.name === 'Lomiri.Components.Themes.SuruDark'
+    Column {
+        anchors {
+            top: header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
 
-    PageStack {
-        id: pageStack
-        anchors.fill: parent
-
-        Component.onCompleted: {
-            pageStack.push(Qt.resolvedUrl('Landing.qml'))
+        ListItem {
+            Label {
+                anchors.centerIn: parent
+                text: i18n.tr('Afvalkalender')
+            }
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl('Calendar.qml'))
+            }
         }
     }
+    
 }
