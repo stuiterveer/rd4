@@ -20,7 +20,7 @@ import Lomiri.Components 1.3
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import io.thp.pyotherside 1.4
-import QtLocation 5.9
+import QtLocation 5.12
 
 Page {
     anchors.fill: parent
