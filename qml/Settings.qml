@@ -29,60 +29,52 @@ Page {
         title: i18n.tr('Instellingen')
     }
 
-    TextField {
-        id: postalcode
+    Column {
         anchors {
             top: header.bottom
+            bottom: parent.bottom
             left: parent.left
+            right: parent.right
         }
-        placeholderText: '1234 AB'
+        TextField {
+            id: postalcode
+            placeholderText: '1234 AB'
 
-        height: units.gu(4)
-        width: parent.width / 4
-    }
-
-    TextField {
-        id: housenumber
-        anchors {
-            top: postalcode.bottom
-            left: parent.left
-        }
-        placeholderText: '1'
-
-        inputMethodHints: Qt.ImhDigitsOnly
-        validator: IntValidator {
-            bottom: 1
+            height: units.gu(4)
+            width: parent.width / 4
         }
 
-        height: units.gu(4)
-        width: parent.width / 8
-    }
+        TextField {
+            id: housenumber
+            placeholderText: '1'
 
-    TextField {
-        id: numberextension
-        anchors {
-            top: housenumber.bottom
-            left: parent.left
+            inputMethodHints: Qt.ImhDigitsOnly
+            validator: IntValidator {
+                bottom: 1
+            }
+
+            height: units.gu(4)
+            width: parent.width / 8
         }
-        placeholderText: 'A'
 
-        height: units.gu(4)
-        width: parent.width / 8
-    }
+        TextField {
+            id: numberextension
+            placeholderText: 'A'
 
-    Button {
-        id: saveSettings
-        anchors {
-            top: numberextension.bottom
-            left: parent.left
+            height: units.gu(4)
+            width: parent.width / 8
         }
-        text: i18n.tr('Opslaan')
 
-        height: units.gu(4)
-        width: parent.width / 2
+        Button {
+            id: saveSettings
+            text: i18n.tr('Opslaan')
 
-        onClicked: {
-            python.call('rd4.saveAddress', [postalcode.text, housenumber.text, numberextension.text])
+            height: units.gu(4)
+            width: parent.width / 2
+
+            onClicked: {
+                python.call('rd4.saveAddress', [postalcode.text, housenumber.text, numberextension.text])
+            }
         }
     }
 
