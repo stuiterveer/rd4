@@ -103,9 +103,9 @@ Page {
             python.call('confighandler.initConfig')
 
             python.call('confighandler.readConfig', [], function(returnValue) {
-                postalcode.text = returnValue['postalCode']
-                housenumber.text = returnValue['houseNumber']
-                numberextension.text = returnValue['extension']
+                postalcode.text = address['postalCode']
+                housenumber.text = address['number']
+                numberextension.text = address['extension']
             })
         }
 

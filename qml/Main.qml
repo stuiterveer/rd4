@@ -30,6 +30,12 @@ MainView {
     width: units.gu(45)
     height: units.gu(75)
 
+    property var address: {
+        'postalCode': null,
+        'number': null,
+        'extension': null
+    }
+
     readonly property var trashLut: {
         'residual_waste': i18n.tr('Restafval'),
         'gft': i18n.tr('GFT'),
@@ -48,6 +54,29 @@ MainView {
 
         Component.onCompleted: {
             pageStack.push(Qt.resolvedUrl('Landing.qml'))
+        }
+    }
+
+    Python {
+        id: python
+
+        Component.onCompleted: {
+            addImportPath(Qt.resolvedUrl('../src/'));
+            importModule('confighandler', function() {
+                console.log('module confighandler imported');
+            });
+
+            python.call('confighandler.initConfig')
+
+            python.call('confighandler.readConfig', [], function(returnValue) {
+                address['postalCode'] = returnValue['postalCode']
+                address['number'] = returnValue['houseNumber']
+                address['extension'] = returnValue['extension']
+            })
+        }
+
+        onError: {
+            console.log('python error: ' + traceback);
         }
     }
 }

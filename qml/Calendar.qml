@@ -47,7 +47,7 @@ Page {
 
     ListView {
         anchors {
-            top: postalcode.bottom
+            top: header.bottom
             left: parent.left
             right: parent.right
             bottom: parent.bottom
@@ -57,75 +57,6 @@ Page {
             id: wasteModel
         }
         delegate: wasteDelegate
-    }
-
-    TextField {
-        id: postalcode
-        anchors {
-            top: header.bottom
-            left: parent.left
-        }
-        placeholderText: '1234 AB'
-
-        height: units.gu(4)
-        width: parent.width / 4
-    }
-
-    TextField {
-        id: housenumber
-        anchors {
-            top: header.bottom
-            left: postalcode.right
-        }
-        placeholderText: '1'
-
-        inputMethodHints: Qt.ImhDigitsOnly
-        validator: IntValidator {
-            bottom: 1
-        }
-
-        height: units.gu(4)
-        width: parent.width / 8
-    }
-
-    TextField {
-        id: numberextension
-        anchors {
-            top: header.bottom
-            left: housenumber.right
-        }
-        placeholderText: 'A'
-
-        height: units.gu(4)
-        width: parent.width / 8
-    }
-
-    Button {
-        id: showcalendar
-        anchors {
-            top: header.bottom
-            left: numberextension.right
-        }
-        text: i18n.tr('Toon kalender')
-
-        height: units.gu(4)
-        width: parent.width / 2
-
-        onClicked: {
-            python.call('rd4.saveAddress', [postalcode.text, housenumber.text, numberextension.text], function(returnValue) {
-                wasteModel.clear()
-                for (var i = 0; i < returnValue.length; i++)
-                {
-                    var typesTrans = []
-                    for (var j = 0; j < returnValue[i]['types'].length; j++)
-                    {
-                        typesTrans.push(trashLut[returnValue[i]['types'][j]])
-                    }
-                    returnValue[i]['typesString'] = typesTrans.join(', ')
-                    wasteModel.append(returnValue[i])
-                }
-            })
-        }
     }
 
     Python {
@@ -138,16 +69,18 @@ Page {
                 console.log('module rd4 imported');
             });
 
-            importModule('confighandler', function() {
-                console.log('module confighandler imported');
-            });
-
-            python.call('confighandler.initConfig')
-
-            python.call('confighandler.readConfig', [], function(returnValue) {
-                postalcode.text = returnValue['postalCode']
-                housenumber.text = returnValue['houseNumber']
-                numberextension.text = returnValue['extension']
+            python.call('rd4.getCalendar', [], function(returnValue) {
+                wasteModel.clear()
+                for (var i = 0; i < returnValue.length; i++)
+                {
+                    var typesTrans = []
+                    for (var j = 0; j < returnValue[i]['types'].length; j++)
+                    {
+                        typesTrans.push(trashLut[returnValue[i]['types'][j]])
+                    }
+                    returnValue[i]['typesString'] = typesTrans.join(', ')
+                    wasteModel.append(returnValue[i])
+                }
             })
         }
 
