@@ -40,6 +40,10 @@ Page {
             id: postalcode
             placeholderText: '1234 AB'
 
+            validator: RegExpValidator {
+                regExp: /^\d{4} *[a-zA-Z]{2}$/
+            }
+
             height: units.gu(4)
             width: parent.width / 4
         }

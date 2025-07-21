@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rd4.stuiterveer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-21 14:47+0000\n"
+"POT-Creation-Date: 2025-07-21 14:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,6 @@ msgstr ""
 msgid "Kerstbomen"
 msgstr ""
 
-#: ../qml/Settings.qml:70
+#: ../qml/Settings.qml:74
 msgid "Opslaan"
 msgstr ""
