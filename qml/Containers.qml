@@ -56,7 +56,7 @@ Page {
             latitude: 50.853577
             longitude: 5.871849
         }
-        zoomLevel: 12
+        minimumZoomLevel: 12
 
         minimumTilt: 0
         maximumTilt: 0
