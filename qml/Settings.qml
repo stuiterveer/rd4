@@ -78,6 +78,9 @@ Page {
 
             onClicked: {
                 python.call('rd4.saveAddress', [postalcode.text, housenumber.text, numberextension.text])
+                address['postalCode'] = postalcode.text
+                address['number'] = housenumber.text
+                address['extension'] = numberextension.text
             }
         }
     }
