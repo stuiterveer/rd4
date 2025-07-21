@@ -57,5 +57,8 @@ Page {
             longitude: 5.871849
         }
         zoomLevel: 12
+
+        minimumTilt: 0
+        maximumTilt: 0
     }
 }
