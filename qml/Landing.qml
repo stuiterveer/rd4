@@ -50,6 +50,16 @@ Page {
         ListItem {
             Label {
                 anchors.centerIn: parent
+                text: i18n.tr('Afvalcontainers')
+            }
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl('Containers.qml'))
+            }
+        }
+
+        ListItem {
+            Label {
+                anchors.centerIn: parent
                 text: i18n.tr('Instellingen')
             }
             onClicked: {
