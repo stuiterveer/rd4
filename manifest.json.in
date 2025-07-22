@@ -9,7 +9,7 @@
             "desktop":  "rd4.desktop"
         }
     },
-    "version": "0.4.1",
+    "version": "0.5.0",
     "maintainer": "stuiterveer <admin@stuiterveer.com>",
     "framework" : "@CLICK_FRAMEWORK@"
 }
