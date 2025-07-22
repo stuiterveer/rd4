@@ -21,6 +21,7 @@ import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 import io.thp.pyotherside 1.4
 import QtLocation 5.12
+import QtPositioning 5.12
 
 Page {
     anchors.fill: parent
@@ -43,8 +44,34 @@ Page {
         }
     }
 
+    ListModel {
+        id: containerModel
+    }
+
+    Component {
+        id: pointDelegate
+
+        MapCircle {
+            id: point
+            radius: 10
+            color: "#46a2da"
+            border.color: "#190a33"
+            border.width: 2
+            smooth: true
+            opacity: 0.25
+            center: QtPositioning.coordinate(y_coordinate, x_coordinate)
+        }
+    }
+
     Map {
         id: map
+
+        anchors {
+            top: header.bottom
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+        }
 
         plugin: osmMapPlugin
         activeMapType: supportedMapTypes[supportedMapTypes.length - 1]
@@ -60,5 +87,34 @@ Page {
 
         minimumTilt: 0
         maximumTilt: 0
+
+        MapItemView {
+            model: containerModel
+            delegate: pointDelegate
+        }
+    }
+
+    Python {
+        id: python
+
+        Component.onCompleted: {
+            addImportPath(Qt.resolvedUrl('../src/'));
+
+            importModule('rd4', function() {
+                console.log('module rd4 imported');
+            });
+
+            python.call('rd4.getLocations', [], function(returnValue) {
+                containerModel.clear()
+                for (var i = 0; i < returnValue.length; i++)
+                {
+                    containerModel.append(returnValue[i])
+                }
+            })
+        }
+
+        onError: {
+            console.log('python error: ' + traceback);
+        }
     }
 }

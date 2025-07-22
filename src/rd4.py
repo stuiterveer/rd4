@@ -72,6 +72,26 @@ def getCalendar():
 
     return data
 
+def getLocations():
+    params = '?types[]=GFT'
+    params += '&types[]=GLAS'
+    params += '&types[]=LUIER'
+    params += '&types[]=PAPIER'
+    params += '&types[]=PMD'
+    params += '&types[]=REST'
+    params += '&types[]=TEXTIEL'
+
+    url = 'https://data.rd4.nl/api/v1/locations{}'.format(params)
+
+    try:
+        conn = urllib.request.urlopen(url)
+    except urllib.error.HTTPError as err:
+        return []
+    returnData = conn.read()
+    conn.close()
+
+    return json.loads(returnData)['data']
+
 def saveAddress(postalCode, houseNumber, extension):
     config['postalCode'] = postalCode
     config['houseNumber'] = houseNumber
