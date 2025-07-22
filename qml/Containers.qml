@@ -76,9 +76,6 @@ Page {
         plugin: osmMapPlugin
         activeMapType: supportedMapTypes[supportedMapTypes.length - 1]
 
-        width: parent.width
-        height: parent.height
-
         center {
             latitude: 50.853577
             longitude: 5.871849
