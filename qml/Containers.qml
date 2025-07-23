@@ -59,7 +59,7 @@ Page {
 
             sourceItem: Image {
                 id: image
-                source: '../assets/marker.png'
+                source: '../assets/marker_red.png'
             }
         }
     }
