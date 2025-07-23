@@ -59,7 +59,7 @@ Page {
 
             sourceItem: Image {
                 id: image
-                source: '../assets/marker_red.png'
+                source: imageFile
             }
         }
     }
@@ -106,17 +106,26 @@ Page {
                 console.log('module geocoding imported');
             });
 
+            containerModel.clear()
+
             if (address['postalCode']) {
                 python.call('geocoding.postalToGeo', [], function(returnValue) {
                     map.center.latitude = returnValue['geometry']['coordinates'][1]
                     map.center.longitude = returnValue['geometry']['coordinates'][0]
+                    map.zoomLevel = 18
+
+                    containerModel.append({
+                        'x_coordinate': returnValue['geometry']['coordinates'][0].toString(),
+                        'y_coordinate': returnValue['geometry']['coordinates'][1].toString(),
+                        'imageFile': '../assets/marker_blue.png'
+                    })
                 })
             }
 
             python.call('rd4.getLocations', [], function(returnValue) {
-                containerModel.clear()
                 for (var i = 0; i < returnValue.length; i++)
                 {
+                    returnValue[i]['imageFile'] = '../assets/marker_red.png'
                     containerModel.append(returnValue[i])
                 }
             })
