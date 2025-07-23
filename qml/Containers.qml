@@ -102,6 +102,17 @@ Page {
                 console.log('module rd4 imported');
             });
 
+            importModule('geocoding', function() {
+                console.log('module geocoding imported');
+            });
+
+            if (address['postalCode']) {
+                python.call('geocoding.postalToGeo', [], function(returnValue) {
+                    map.center.latitude = returnValue['geometry']['coordinates'][1]
+                    map.center.longitude = returnValue['geometry']['coordinates'][0]
+                })
+            }
+
             python.call('rd4.getLocations', [], function(returnValue) {
                 containerModel.clear()
                 for (var i = 0; i < returnValue.length; i++)
