@@ -51,15 +51,16 @@ Page {
     Component {
         id: pointDelegate
 
-        MapCircle {
-            id: point
-            radius: 10
-            color: "#46a2da"
-            border.color: "#190a33"
-            border.width: 2
-            smooth: true
-            opacity: 0.25
-            center: QtPositioning.coordinate(y_coordinate, x_coordinate)
+        MapQuickItem {
+            coordinate: QtPositioning.coordinate(y_coordinate, x_coordinate)
+
+            anchorPoint.x: image.width * 0.5
+            anchorPoint.y: image.height
+
+            sourceItem: Image {
+                id: image
+                source: '../assets/marker.png'
+            }
         }
     }
 
