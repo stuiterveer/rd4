@@ -77,14 +77,14 @@ Page {
         plugin: osmMapPlugin
         activeMapType: supportedMapTypes[supportedMapTypes.length - 1]
 
+        gesture.enabled: true
+        gesture.acceptedGestures: MapGestureArea.PinchGesture | MapGestureArea.PanGesture | MapGestureArea.FlickGesture
+
         center {
             latitude: 50.853577
             longitude: 5.871849
         }
         minimumZoomLevel: 12
-
-        minimumTilt: 0
-        maximumTilt: 0
 
         MapItemView {
             model: containerModel
