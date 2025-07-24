@@ -29,7 +29,20 @@ Page {
         title: 'Rd4'
     }
 
-    Column {
+    Component {
+        id: pageDelegate
+        ListItem {
+            Label {
+                anchors.centerIn: parent
+                text: name
+            }
+            onClicked: {
+                pageStack.push(Qt.resolvedUrl(file))
+            }
+        }
+    }
+
+    ListView {
         anchors {
             top: header.bottom
             left: parent.left
@@ -37,35 +50,33 @@ Page {
             bottom: parent.bottom
         }
 
-        ListItem {
-            Label {
-                anchors.centerIn: parent
-                text: i18n.tr('Afvalkalender')
-            }
-            onClicked: {
-                pageStack.push(Qt.resolvedUrl('Calendar.qml'))
-            }
+        model: ListModel {
+            id: pageModel
         }
+        delegate: pageDelegate
 
-        ListItem {
-            Label {
-                anchors.centerIn: parent
-                text: i18n.tr('Afvalcontainers')
-            }
-            onClicked: {
-                pageStack.push(Qt.resolvedUrl('Containers.qml'))
-            }
-        }
+        Component.onCompleted: {
+            pageModel.clear()
 
-        ListItem {
-            Label {
-                anchors.centerIn: parent
-                text: i18n.tr('Instellingen')
-            }
-            onClicked: {
-                pageStack.push(Qt.resolvedUrl('Settings.qml'))
+            var pages = [
+                {
+                    'name': i18n.tr('Afvalkalender'),
+                    'file': 'Calendar.qml'
+                },
+                {
+                    'name': i18n.tr('Afvalcontainers'),
+                    'file': 'Containers.qml'
+                },
+                {
+                    'name': i18n.tr('Instellingen'),
+                    'file': 'Settings.qml'
+                }
+            ]
+
+            for (var i = 0; i < pages.length; i++)
+            {
+                pageModel.append(pages[i])
             }
         }
     }
-    
 }
