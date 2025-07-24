@@ -12,19 +12,18 @@ Page {
 
     Component {
         id: wasteDelegate
-        Item {
+
+        ListItem {
             height: txt.implicitHeight
             width: txt.implicitWidth
 
-            Row {
-                Label {
-                    id: txt
-                    text: '<b>' + date + (dateInfo == 'today' ? ' (' + i18n.tr('vandaag') + ')' : '') + ':</b> ' + typesString
-                    Component.onCompleted: {
-                        if (dateInfo == 'past')
-                        {
-                            color = '#888888'
-                        }
+            Label {
+                id: txt
+                text: '<b>' + date + (dateInfo == 'today' ? ' (' + i18n.tr('vandaag') + ')' : '') + ':</b> ' + typesString
+                Component.onCompleted: {
+                    if (dateInfo == 'past')
+                    {
+                        color = '#888888'
                     }
                 }
             }
