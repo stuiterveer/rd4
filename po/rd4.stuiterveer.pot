@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rd4.stuiterveer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-24 09:03+0000\n"
+"POT-Creation-Date: 2025-07-24 09:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,50 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Calendar.qml:29 ../qml/Landing.qml:63
+#: ../qml/Calendar.qml:10 ../qml/Landing.qml:44
 msgid "Afvalkalender"
 msgstr ""
 
-#: ../qml/Calendar.qml:41
+#: ../qml/Calendar.qml:22
 msgid "vandaag"
 msgstr ""
 
-#: ../qml/Containers.qml:31 ../qml/Landing.qml:67
+#: ../qml/Containers.qml:12 ../qml/Landing.qml:48
 msgid "Afvalcontainers"
 msgstr ""
 
-#: ../qml/Landing.qml:71 ../qml/Settings.qml:29
+#: ../qml/Landing.qml:52 ../qml/Settings.qml:10
 msgid "Instellingen"
 msgstr ""
 
-#: ../qml/Main.qml:40
+#: ../qml/Main.qml:21
 msgid "Restafval"
 msgstr ""
 
-#: ../qml/Main.qml:41
+#: ../qml/Main.qml:22
 msgid "GFT"
 msgstr ""
 
-#: ../qml/Main.qml:42
+#: ../qml/Main.qml:23
 msgid "Papier"
 msgstr ""
 
-#: ../qml/Main.qml:43
+#: ../qml/Main.qml:24
 msgid "Snoeiafval"
 msgstr ""
 
-#: ../qml/Main.qml:44
+#: ../qml/Main.qml:25
 msgid "PMD"
 msgstr ""
 
-#: ../qml/Main.qml:45
+#: ../qml/Main.qml:26
 msgid "BEST-tas"
 msgstr ""
 
-#: ../qml/Main.qml:46
+#: ../qml/Main.qml:27
 msgid "Kerstbomen"
 msgstr ""
 
-#: ../qml/Settings.qml:74
+#: ../qml/Settings.qml:55
 msgid "Opslaan"
 msgstr ""
