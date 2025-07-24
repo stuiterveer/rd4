@@ -17,6 +17,10 @@ Page {
             height: txt.implicitHeight
             width: txt.implicitWidth
 
+            divider {
+                visible: false
+            }
+
             Label {
                 id: txt
                 text: '<b>' + date + (dateInfo == 'today' ? ' (' + i18n.tr('vandaag') + ')' : '') + ':</b> ' + typesString
