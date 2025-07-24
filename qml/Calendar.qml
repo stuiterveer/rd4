@@ -33,6 +33,8 @@ Page {
             right: parent.right
             bottom: parent.bottom
         }
+
+        id: trashView
         
         model: ListModel {
             id: wasteModel
@@ -52,16 +54,23 @@ Page {
 
             python.call('rd4.getCalendar', [], function(returnValue) {
                 wasteModel.clear()
+                var currentIndex = 0
                 for (var i = 0; i < returnValue.length; i++)
                 {
                     var typesTrans = []
                     for (var j = 0; j < returnValue[i]['types'].length; j++)
                     {
                         typesTrans.push(trashLut[returnValue[i]['types'][j]])
+                        if (returnValue[i]['dateInfo'] != 'past' && currentIndex == 0)
+                        {
+                            currentIndex = i
+                        }
                     }
                     returnValue[i]['typesString'] = typesTrans.join(', ')
                     wasteModel.append(returnValue[i])
                 }
+
+                trashView.positionViewAtIndex(currentIndex, ListView.Center)
             })
         }
 
