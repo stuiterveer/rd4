@@ -28,7 +28,7 @@ Page {
 
     header: PageHeader {
         id: header
-        title: 'Afvalcontainers'
+        title: i18n.tr('Afvalcontainers')
     }
 
     Plugin {
