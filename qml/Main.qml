@@ -27,8 +27,6 @@ MainView {
         'christmas_trees': i18n.tr('Kerstbomen')
     }
 
-    readonly property bool isDark: theme.name === 'Lomiri.Components.Themes.SuruDark'
-
     PageStack {
         id: pageStack
         anchors.fill: parent

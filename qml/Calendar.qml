@@ -17,10 +17,15 @@ Page {
             width: txt.implicitWidth
 
             Row {
-                Text {
+                Label {
                     id: txt
                     text: '<b>' + date + (dateInfo == 'today' ? ' (' + i18n.tr('vandaag') + ')' : '') + ':</b> ' + typesString
-                    color: dateInfo == 'past' ? '#888888' : (isDark ? '#ffffff' : '#111111')
+                    Component.onCompleted: {
+                        if (dateInfo == 'past')
+                        {
+                            color = '#888888'
+                        }
+                    }
                 }
             }
         }
