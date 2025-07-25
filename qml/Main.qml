@@ -27,6 +27,15 @@ MainView {
         'christmas_trees': i18n.tr('Kerstbomen')
     }
 
+    property var containerInfo: {
+        'name': '',
+        'address': '',
+        'city': '',
+        'postalCode': '',
+        'public': false,
+        'wasteTypes': []
+    }
+
     PageStack {
         id: pageStack
         anchors.fill: parent

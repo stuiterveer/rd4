@@ -33,6 +33,8 @@ Page {
         id: pointDelegate
 
         MapQuickItem {
+            id: marker
+
             coordinate: QtPositioning.coordinate(y_coordinate, x_coordinate)
 
             anchorPoint.x: image.width * 0.5
@@ -42,6 +44,27 @@ Page {
                 id: image
                 source: imageFile
             }
+
+            MouseArea {
+                    id: idMyMouseArea;
+                    acceptedButtons: Qt.LeftButton
+                    parent: marker
+                    anchors.fill: parent
+
+                    onPressed: {
+                        if (name != 'POSTALCODEMARKER')
+                        {
+                            containerInfo['name'] = name
+                            containerInfo['address'] = address
+                            containerInfo['city'] = city
+                            containerInfo['postalCode'] = postal_code
+                            containerInfo['public'] = publicContainer
+
+                            map.center = coordinate
+                            pageStack.push(Qt.resolvedUrl('ContainerDetails.qml'))
+                        }
+                    }
+                }
         }
     }
 
@@ -98,7 +121,12 @@ Page {
                     containerModel.append({
                         'x_coordinate': returnValue['geometry']['coordinates'][0].toString(),
                         'y_coordinate': returnValue['geometry']['coordinates'][1].toString(),
-                        'imageFile': '../assets/marker_blue.png'
+                        'imageFile': '../assets/marker_blue.png',
+                        'name': 'POSTALCODEMARKER',
+                        'address': '',
+                        'city': '',
+                        'postal_code': '',
+                        'publicContainer': false
                     })
                 })
             }
@@ -107,6 +135,8 @@ Page {
                 for (var i = 0; i < returnValue.length; i++)
                 {
                     returnValue[i]['imageFile'] = '../assets/marker_red.png'
+                    returnValue[i]['publicContainer'] = returnValue[i]['public']
+                    delete returnValue[i]['public']
                     containerModel.append(returnValue[i])
                 }
             })
